@@ -10,7 +10,7 @@ bbox2 = [];
 videoPlayer = vision.VideoPlayer('Name', 'Awakeness Detection', 'Position', [450 50 1000 500]);
 while true
     i = i + 1;
-    videoFrame      = step(videoFileReader);
+    videoFrame = step(videoFileReader);
     videoFrame = rgb2gray(videoFrame);
     if not(isempty(bbox1))
     res1 = bbox1;
@@ -18,8 +18,8 @@ while true
     if not(isempty(bbox2))
     res2 = bbox2;
     end
-    bbox1            = step(faceDetector1, videoFrame);
-    bbox2            = step(faceDetector2, videoFrame);
+    bbox1 = step(faceDetector1, videoFrame);
+    bbox2 = step(faceDetector2, videoFrame);
     if (isempty(bbox1)) && (isempty(bbox2))
         fprintf('both eyes closed!\n')
         videoOut = insertObjectAnnotation(videoFrame,'rectangle',res1,'CLOSED!', 'Color', 'Red');
